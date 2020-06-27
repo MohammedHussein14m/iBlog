@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row form-search">
+    <form method="GET" action="" accept-charset="UTF-8" role="form">
+      <div class="col-md-10">
+        <input
+          class="form-control"
+          placeholder="Search..."
+          name="search"
+          type="text"
+          #query
+          (keyup) = "filter(query.value)"
+        />
+      </div>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngFor = "let p of filteredPosts " class="panel panel-default">
+        <div class="panel-heading">
+            {{p.title}}
+
+            <span class="pull-right">
+                {{p.id}}
+            </span>
+        </div>
+
+        <div class="panel-body">
+            <p> {{p.body}} </p>
+            <p>
+                Category: <span class="label label-success"> {{p.category}} </span> <br>
+                Tags:
+                <span class="label label-danger"> {{p.tags}} </span>
+            </p>
+        </div>
+      </div>
+    </div>
+    <div align="center">
+      <ul class="pagination">
+        <li class="disabled"><span>« Previous</span></li>
+        <li><a href="" rel="next">Next »</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
